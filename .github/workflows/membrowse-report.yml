@@ -24,6 +24,7 @@ jobs:
         run: echo "matrix=$(jq -c '.' .github/membrowse-targets.json)" >> $GITHUB_OUTPUT
 
   analyze:
+    name: analyze (${{ matrix.target_name }})
     needs: load-targets
     runs-on: ubuntu-latest
     strategy:
