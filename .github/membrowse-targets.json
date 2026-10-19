@@ -1,0 +1,47 @@
+[
+  {
+    "target_name": "samd21-trinket_m0",
+    "setup_cmd": "curl -sSL -o /tmp/arm-gnu-toolchain.tar.xz \"https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/15.3.rel1/arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz\" && mkdir -p \"$HOME/arm-gnu-toolchain\" && tar -xJf /tmp/arm-gnu-toolchain.tar.xz -C \"$HOME/arm-gnu-toolchain\" --strip-components=1 && echo \"$HOME/arm-gnu-toolchain/bin\" >> \"$GITHUB_PATH\" && pip install -r requirements-dev.txt && make fetch-tags",
+    "build_cmd": "python3 tools/ci_fetch_deps.py trinket_m0 && make -C ports/atmel-samd BOARD=trinket_m0 -j$(nproc)",
+    "elf": "ports/atmel-samd/build-trinket_m0/firmware.elf",
+    "ld": "ports/atmel-samd/build-trinket_m0/common.ld",
+    "map_file": "ports/atmel-samd/build-trinket_m0/firmware.elf.map",
+    "linker_vars": ""
+  },
+  {
+    "target_name": "samd51-feather_m4_express",
+    "setup_cmd": "curl -sSL -o /tmp/arm-gnu-toolchain.tar.xz \"https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/15.3.rel1/arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz\" && mkdir -p \"$HOME/arm-gnu-toolchain\" && tar -xJf /tmp/arm-gnu-toolchain.tar.xz -C \"$HOME/arm-gnu-toolchain\" --strip-components=1 && echo \"$HOME/arm-gnu-toolchain/bin\" >> \"$GITHUB_PATH\" && pip install -r requirements-dev.txt && make fetch-tags",
+    "build_cmd": "python3 tools/ci_fetch_deps.py feather_m4_express && make -C ports/atmel-samd BOARD=feather_m4_express -j$(nproc)",
+    "elf": "ports/atmel-samd/build-feather_m4_express/firmware.elf",
+    "ld": "ports/atmel-samd/build-feather_m4_express/common.ld",
+    "map_file": "ports/atmel-samd/build-feather_m4_express/firmware.elf.map",
+    "linker_vars": ""
+  },
+  {
+    "target_name": "rp2040-raspberry_pi_pico",
+    "setup_cmd": "curl -sSL -o /tmp/arm-gnu-toolchain.tar.xz \"https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/15.3.rel1/arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz\" && mkdir -p \"$HOME/arm-gnu-toolchain\" && tar -xJf /tmp/arm-gnu-toolchain.tar.xz -C \"$HOME/arm-gnu-toolchain\" --strip-components=1 && echo \"$HOME/arm-gnu-toolchain/bin\" >> \"$GITHUB_PATH\" && pip install -r requirements-dev.txt && make fetch-tags",
+    "build_cmd": "python3 tools/ci_fetch_deps.py raspberry_pi_pico && make -C ports/raspberrypi BOARD=raspberry_pi_pico -j$(nproc)",
+    "elf": "ports/raspberrypi/build-raspberry_pi_pico/firmware.elf",
+    "ld": "ports/raspberrypi/link-rp2040.ld",
+    "map_file": "ports/raspberrypi/build-raspberry_pi_pico/firmware.elf.map",
+    "linker_vars": ""
+  },
+  {
+    "target_name": "nrf52840-feather_nrf52840_express",
+    "setup_cmd": "curl -sSL -o /tmp/arm-gnu-toolchain.tar.xz \"https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/15.3.rel1/arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz\" && mkdir -p \"$HOME/arm-gnu-toolchain\" && tar -xJf /tmp/arm-gnu-toolchain.tar.xz -C \"$HOME/arm-gnu-toolchain\" --strip-components=1 && echo \"$HOME/arm-gnu-toolchain/bin\" >> \"$GITHUB_PATH\" && pip install -r requirements-dev.txt && make fetch-tags",
+    "build_cmd": "python3 tools/ci_fetch_deps.py feather_nrf52840_express && make -C ports/nordic BOARD=feather_nrf52840_express -j$(nproc)",
+    "elf": "ports/nordic/build-feather_nrf52840_express/firmware.elf",
+    "ld": "ports/nordic/build-feather_nrf52840_express/common.ld",
+    "map_file": "ports/nordic/build-feather_nrf52840_express/firmware.elf.map",
+    "linker_vars": ""
+  },
+  {
+    "target_name": "stm32f405-feather_stm32f405_express",
+    "setup_cmd": "curl -sSL -o /tmp/arm-gnu-toolchain.tar.xz \"https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/15.3.rel1/arm-gnu-toolchain-15.3.rel1-x86_64-arm-none-eabi.tar.xz\" && mkdir -p \"$HOME/arm-gnu-toolchain\" && tar -xJf /tmp/arm-gnu-toolchain.tar.xz -C \"$HOME/arm-gnu-toolchain\" --strip-components=1 && echo \"$HOME/arm-gnu-toolchain/bin\" >> \"$GITHUB_PATH\" && pip install -r requirements-dev.txt && make fetch-tags",
+    "build_cmd": "python3 tools/ci_fetch_deps.py feather_stm32f405_express && make -C ports/stm BOARD=feather_stm32f405_express -j$(nproc)",
+    "elf": "ports/stm/build-feather_stm32f405_express/firmware.elf",
+    "ld": "ports/stm/boards/STM32F405_default.ld ports/stm/boards/common_default.ld",
+    "map_file": "ports/stm/build-feather_stm32f405_express/firmware.elf.map",
+    "linker_vars": ""
+  }
+]
